@@ -1,38 +1,173 @@
-.App {
+:root {
+  --bg: #fdf6f0;
+  --primary: #ff7aa2;
+  --secondary: #6be5ff;
+  --accent: #ffd166;
+  --card-bg: #ffffff;
+  --text-muted: #6b7280;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: #0f172a;
+}
+
+.app-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+h1 {
   text-align: center;
+  margin-bottom: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.notification {
+  text-align: center;
+  background: var(--secondary);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-bottom: 15px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.task-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.task-input, .task-textarea {
+  padding: 15px;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.task-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.form-buttons button {
+  flex: 1;
+  padding: 12px;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  color: #fff;
+  transition: all 0.2s ease;
+}
+
+.form-buttons button:hover {
+  opacity: 0.9;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.no-tasks {
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.task-card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-3px);
+}
+
+.task-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.task-actions button {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  background: var(--secondary);
   color: white;
+  transition: all 0.2s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.task-actions button:hover {
+  opacity: 0.8;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.controls-bar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.toggle-button, .filter-button {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 0;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: white;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  box-shadow: 0 8px 20px rgba(11,18,40,0.06);
+  transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+}
+
+.filter-button {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid rgba(11,18,40,0.06);
+  box-shadow: none;
+}
+
+.filter-button.active {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  color: white;
+  box-shadow: 0 10px 26px rgba(11,18,40,0.08);
+  transform: translateY(-2px);
+}
+
+.toggle-button:hover, .filter-button:hover {
+  opacity: 0.95;
+  transform: translateY(-2px);
+}
+
+.toggle-button:active, .filter-button:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 720px) {
+  .controls-bar {
+    flex-direction: column;
+    align-items: stretch;
   }
-  to {
-    transform: rotate(360deg);
+  .toggle-button, .filter-button {
+    width: 100%;
   }
 }

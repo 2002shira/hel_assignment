@@ -1,0 +1,27 @@
+.task-list-container {
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.no-tasks {
+  color: #888;
+  margin-top: 20px;
+}
+
+.task-list-container {
+  height: 400px;
+  overflow-y: hidden;
+  position: relative;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
