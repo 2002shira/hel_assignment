@@ -25,3 +25,26 @@
   flex-direction: column;
   gap: 15px;
 }
+
+
+.task-list-container.vertical-carousel {
+  height: 450px;
+  overflow: hidden;
+  position: relative;
+}
+
+.task-list.carousel {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  animation: scrollDown 10s linear infinite;
+}
+
+@keyframes scrollDown {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+.task-list-item {
+  flex: 0 0 auto;
+}
